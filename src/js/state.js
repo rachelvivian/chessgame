@@ -8,6 +8,6 @@ const state = {
     captured: '',
     time: '00:00:00',
     // availableMoves: [],
-};
+}
 
 export default state;

@@ -1,5 +1,6 @@
 import state from '../state';
 import moves from '../moves';
+// import playerMoves from './playerMoves';
 
 function validateMove(vector, board) {
     const space = board[vector.x][vector.y];
@@ -12,6 +13,8 @@ function validateMove(vector, board) {
             found = true;
         }
     });
+    
+    
     
     return found;
 }

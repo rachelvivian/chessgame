@@ -1,6 +1,6 @@
 import state from '../state';
 
-function pawnMoves (vector, board) {
+function pawnMoves (vector, board, king) {
     const piece = board[vector.x][vector.y].children[0];
     const color = piece.id.split('-')[0];
     const enemy = color === 'blk' ? 'wht' : 'blk';
@@ -23,6 +23,7 @@ function pawnMoves (vector, board) {
     
     (function () {
         for (i;i < 2;i++) {
+            if (king === 'check') break;
             const firstMoves = { ...vector };
             if (moved) {
                 firstMoves.x += (i * dir);
@@ -63,11 +64,10 @@ function pawnMoves (vector, board) {
                 } else {
                     rightSpace.classList.add('attack-blk');
                 }
-                moves.push({ x: rv.x, y: rv.y + 1 });
+                moves.push({ x: rv.x + dir, y: rv.y + 1 });
             }
         }
     })();
-    console.log('pawn()', moves)
     return moves;
 }
 
